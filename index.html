@@ -1,0 +1,115 @@
+<!DOCTYPE html><html>
+<head>
+<title>For My Special One ❤️</title><style>
+body {
+    margin: 0;
+    font-family: Arial;
+    text-align: center;
+    overflow: hidden;
+    background: linear-gradient(135deg,#ff758c,#ff7eb3,#ffb199);
+    color: white;
+}
+
+/* Center everything */
+.container {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80%;
+}
+
+h1 {
+    font-size: 50px;
+    animation: glow 2s infinite alternate;
+}
+
+p {
+    font-size: 22px;
+    line-height: 1.6;
+}
+
+@keyframes glow {
+    from { text-shadow: 0 0 10px white; }
+    to { text-shadow: 0 0 40px red; }
+}
+
+button {
+    padding: 15px 35px;
+    font-size: 20px;
+    border: none;
+    border-radius: 40px;
+    margin: 20px;
+    cursor: pointer;
+}
+
+.yes {
+    background: #ff4d6d;
+    color: white;
+}
+
+.no {
+    background: white;
+    color: black;
+    position: absolute;
+}
+
+/* hearts animation */
+.heart {
+    position: absolute;
+    font-size: 25px;
+    color: red;
+    animation: float 5s linear infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(100vh); }
+    100% { transform: translateY(-10vh); }
+}
+</style></head><body><!-- PAGE 1 --><div class="container" id="page1">
+    <h1>Hey ❤️</h1>
+    <p>I have something very special to tell you...</p>
+    <button class="yes" onclick="next()">Open 💌</button>
+</div><!-- PAGE 2 --><div class="container" id="page2" style="display:none;">
+    <h1>You Make Me Very Happy 😊</h1>
+    <p>Will you always stay with me?</p>
+    <button class="yes" onclick="final()">YES ❤️</button>
+    <button class="no" onmouseover="move()">NO 😜</button>
+</div><!-- PAGE 3 --><div class="container" id="page3" style="display:none;">
+    <h1>❤️ I LOVE YOU ❤️</h1>
+    <p>
+        You are my everything… my happiness, my peace, my smile.  
+        Every moment I spend with you feels magical.  
+        My heart belongs only to you and always will.  
+        No matter what happens, my time, my care, my love — everything is yours forever.  
+        I just want to stay with you, make you smile, and love you more every single day ❤️
+    </p>
+</div><script>
+function next() {
+    page1.style.display="none";
+    page2.style.display="block";
+}
+
+function final() {
+    page2.style.display="none";
+    page3.style.display="block";
+}
+
+function move() {
+    const btn=document.querySelector(".no");
+    btn.style.top=Math.random()*80+"vh";
+    btn.style.left=Math.random()*80+"vw";
+}
+
+/* floating hearts */
+function heart(){
+    let h=document.createElement("div");
+    h.className="heart";
+    h.innerHTML="❤️";
+    h.style.left=Math.random()*100+"vw";
+    document.body.appendChild(h);
+    setTimeout(()=>h.remove(),5000);
+}
+setInterval(heart,300);
+</script></body>
+</html>
